@@ -1,0 +1,674 @@
+Starting a Gradle Daemon, 3 incompatible and 2 stopped Daemons could not be reused, use --status for details
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle:compileKotlin UP-TO-DATE
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+
+> Configure project :app
+Warning: Flutter support for your project's Kotlin version (1.9.24) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.1.0 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (C:\MediTrack\flutter_application_1\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (C:\MediTrack\flutter_application_1\android/build.gradle) by the ext.kotlin_version property.
+
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.7.0) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+
+> Task :app:DebugMinSdkCheck
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:compileFlutterBuildDebug
+> Task :app:packJniLibsflutterBuildDebug
+> Task :cloud_firestore:preBuild UP-TO-DATE
+> Task :cloud_firestore:preDebugBuild UP-TO-DATE
+> Task :cloud_firestore:writeDebugAarMetadata UP-TO-DATE
+> Task :connectivity_plus:preBuild UP-TO-DATE
+> Task :connectivity_plus:preDebugBuild UP-TO-DATE
+> Task :connectivity_plus:writeDebugAarMetadata UP-TO-DATE
+> Task :firebase_auth:preBuild UP-TO-DATE
+> Task :firebase_auth:preDebugBuild UP-TO-DATE
+> Task :firebase_auth:writeDebugAarMetadata UP-TO-DATE
+> Task :firebase_core:preBuild UP-TO-DATE
+> Task :firebase_core:preDebugBuild UP-TO-DATE
+> Task :firebase_core:writeDebugAarMetadata UP-TO-DATE
+> Task :firebase_messaging:preBuild UP-TO-DATE
+> Task :firebase_messaging:preDebugBuild UP-TO-DATE
+> Task :firebase_messaging:writeDebugAarMetadata UP-TO-DATE
+> Task :fluttertoast:preBuild UP-TO-DATE
+> Task :fluttertoast:preDebugBuild UP-TO-DATE
+> Task :fluttertoast:writeDebugAarMetadata UP-TO-DATE
+> Task :path_provider_android:preBuild UP-TO-DATE
+> Task :path_provider_android:preDebugBuild UP-TO-DATE
+> Task :path_provider_android:writeDebugAarMetadata UP-TO-DATE
+> Task :share_plus:preBuild UP-TO-DATE
+> Task :share_plus:preDebugBuild UP-TO-DATE
+> Task :share_plus:writeDebugAarMetadata UP-TO-DATE
+> Task :shared_preferences_android:preBuild UP-TO-DATE
+> Task :shared_preferences_android:preDebugBuild UP-TO-DATE
+> Task :shared_preferences_android:writeDebugAarMetadata UP-TO-DATE
+> Task :sqflite_android:preBuild UP-TO-DATE
+> Task :sqflite_android:preDebugBuild UP-TO-DATE
+> Task :sqflite_android:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:cleanMergeDebugAssets
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :cloud_firestore:mergeDebugShaders UP-TO-DATE
+> Task :cloud_firestore:compileDebugShaders NO-SOURCE
+> Task :cloud_firestore:generateDebugAssets UP-TO-DATE
+> Task :cloud_firestore:packageDebugAssets UP-TO-DATE
+> Task :connectivity_plus:mergeDebugShaders UP-TO-DATE
+> Task :connectivity_plus:compileDebugShaders NO-SOURCE
+> Task :connectivity_plus:generateDebugAssets UP-TO-DATE
+> Task :connectivity_plus:packageDebugAssets UP-TO-DATE
+> Task :firebase_auth:mergeDebugShaders UP-TO-DATE
+> Task :firebase_auth:compileDebugShaders NO-SOURCE
+> Task :firebase_auth:generateDebugAssets UP-TO-DATE
+> Task :firebase_auth:packageDebugAssets UP-TO-DATE
+> Task :firebase_core:mergeDebugShaders UP-TO-DATE
+> Task :firebase_core:compileDebugShaders NO-SOURCE
+> Task :firebase_core:generateDebugAssets UP-TO-DATE
+> Task :firebase_core:packageDebugAssets UP-TO-DATE
+> Task :firebase_messaging:mergeDebugShaders UP-TO-DATE
+> Task :firebase_messaging:compileDebugShaders NO-SOURCE
+> Task :firebase_messaging:generateDebugAssets UP-TO-DATE
+> Task :firebase_messaging:packageDebugAssets UP-TO-DATE
+> Task :fluttertoast:mergeDebugShaders UP-TO-DATE
+> Task :fluttertoast:compileDebugShaders NO-SOURCE
+> Task :fluttertoast:generateDebugAssets UP-TO-DATE
+> Task :fluttertoast:packageDebugAssets UP-TO-DATE
+> Task :path_provider_android:mergeDebugShaders UP-TO-DATE
+> Task :path_provider_android:compileDebugShaders NO-SOURCE
+> Task :path_provider_android:generateDebugAssets UP-TO-DATE
+> Task :path_provider_android:packageDebugAssets UP-TO-DATE
+> Task :share_plus:mergeDebugShaders UP-TO-DATE
+> Task :share_plus:compileDebugShaders NO-SOURCE
+> Task :share_plus:generateDebugAssets UP-TO-DATE
+> Task :share_plus:packageDebugAssets UP-TO-DATE
+> Task :shared_preferences_android:mergeDebugShaders UP-TO-DATE
+> Task :shared_preferences_android:compileDebugShaders NO-SOURCE
+> Task :shared_preferences_android:generateDebugAssets UP-TO-DATE
+> Task :shared_preferences_android:packageDebugAssets UP-TO-DATE
+> Task :sqflite_android:mergeDebugShaders UP-TO-DATE
+> Task :sqflite_android:compileDebugShaders NO-SOURCE
+> Task :sqflite_android:generateDebugAssets UP-TO-DATE
+> Task :sqflite_android:packageDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:copyFlutterAssetsDebug
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :cloud_firestore:generateDebugResValues UP-TO-DATE
+> Task :cloud_firestore:generateDebugResources UP-TO-DATE
+> Task :cloud_firestore:packageDebugResources UP-TO-DATE
+> Task :connectivity_plus:generateDebugResValues UP-TO-DATE
+> Task :connectivity_plus:generateDebugResources UP-TO-DATE
+> Task :connectivity_plus:packageDebugResources UP-TO-DATE
+> Task :firebase_auth:generateDebugResValues UP-TO-DATE
+> Task :firebase_auth:generateDebugResources UP-TO-DATE
+> Task :firebase_auth:packageDebugResources UP-TO-DATE
+> Task :firebase_core:generateDebugResValues UP-TO-DATE
+> Task :firebase_core:generateDebugResources UP-TO-DATE
+> Task :firebase_core:packageDebugResources UP-TO-DATE
+> Task :firebase_messaging:generateDebugResValues UP-TO-DATE
+> Task :firebase_messaging:generateDebugResources UP-TO-DATE
+> Task :firebase_messaging:packageDebugResources UP-TO-DATE
+> Task :fluttertoast:generateDebugResValues UP-TO-DATE
+> Task :fluttertoast:generateDebugResources UP-TO-DATE
+> Task :fluttertoast:packageDebugResources UP-TO-DATE
+> Task :path_provider_android:generateDebugResValues UP-TO-DATE
+> Task :path_provider_android:generateDebugResources UP-TO-DATE
+> Task :path_provider_android:packageDebugResources UP-TO-DATE
+> Task :share_plus:generateDebugResValues UP-TO-DATE
+> Task :share_plus:generateDebugResources UP-TO-DATE
+> Task :share_plus:packageDebugResources UP-TO-DATE
+> Task :shared_preferences_android:generateDebugResValues UP-TO-DATE
+> Task :shared_preferences_android:generateDebugResources UP-TO-DATE
+> Task :shared_preferences_android:packageDebugResources UP-TO-DATE
+> Task :sqflite_android:generateDebugResValues UP-TO-DATE
+> Task :sqflite_android:generateDebugResources UP-TO-DATE
+> Task :sqflite_android:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :cloud_firestore:extractDeepLinksDebug UP-TO-DATE
+> Task :cloud_firestore:processDebugManifest UP-TO-DATE
+> Task :connectivity_plus:extractDeepLinksDebug UP-TO-DATE
+> Task :connectivity_plus:processDebugManifest UP-TO-DATE
+> Task :firebase_auth:extractDeepLinksDebug UP-TO-DATE
+> Task :firebase_auth:processDebugManifest UP-TO-DATE
+> Task :firebase_core:extractDeepLinksDebug UP-TO-DATE
+> Task :firebase_core:processDebugManifest UP-TO-DATE
+> Task :firebase_messaging:extractDeepLinksDebug UP-TO-DATE
+> Task :firebase_messaging:processDebugManifest UP-TO-DATE
+> Task :fluttertoast:extractDeepLinksDebug UP-TO-DATE
+> Task :fluttertoast:processDebugManifest UP-TO-DATE
+> Task :path_provider_android:extractDeepLinksDebug UP-TO-DATE
+> Task :path_provider_android:processDebugManifest UP-TO-DATE
+> Task :share_plus:extractDeepLinksDebug UP-TO-DATE
+> Task :share_plus:processDebugManifest UP-TO-DATE
+> Task :shared_preferences_android:extractDeepLinksDebug UP-TO-DATE
+> Task :shared_preferences_android:processDebugManifest UP-TO-DATE
+> Task :sqflite_android:extractDeepLinksDebug UP-TO-DATE
+> Task :sqflite_android:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:outputDebugAppLinkSettings UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :cloud_firestore:compileDebugLibraryResources UP-TO-DATE
+> Task :cloud_firestore:parseDebugLocalResources UP-TO-DATE
+> Task :cloud_firestore:generateDebugRFile UP-TO-DATE
+> Task :connectivity_plus:compileDebugLibraryResources UP-TO-DATE
+> Task :connectivity_plus:parseDebugLocalResources UP-TO-DATE
+> Task :connectivity_plus:generateDebugRFile UP-TO-DATE
+> Task :firebase_auth:compileDebugLibraryResources UP-TO-DATE
+> Task :firebase_auth:parseDebugLocalResources UP-TO-DATE
+> Task :firebase_auth:generateDebugRFile UP-TO-DATE
+> Task :firebase_core:compileDebugLibraryResources UP-TO-DATE
+> Task :firebase_core:parseDebugLocalResources UP-TO-DATE
+> Task :firebase_core:generateDebugRFile UP-TO-DATE
+> Task :firebase_messaging:compileDebugLibraryResources UP-TO-DATE
+> Task :firebase_messaging:parseDebugLocalResources UP-TO-DATE
+> Task :firebase_messaging:generateDebugRFile UP-TO-DATE
+> Task :fluttertoast:compileDebugLibraryResources UP-TO-DATE
+> Task :fluttertoast:parseDebugLocalResources UP-TO-DATE
+> Task :fluttertoast:generateDebugRFile UP-TO-DATE
+> Task :path_provider_android:compileDebugLibraryResources UP-TO-DATE
+> Task :path_provider_android:parseDebugLocalResources UP-TO-DATE
+> Task :path_provider_android:generateDebugRFile UP-TO-DATE
+> Task :share_plus:compileDebugLibraryResources UP-TO-DATE
+> Task :share_plus:parseDebugLocalResources UP-TO-DATE
+> Task :share_plus:generateDebugRFile UP-TO-DATE
+> Task :shared_preferences_android:compileDebugLibraryResources UP-TO-DATE
+> Task :shared_preferences_android:parseDebugLocalResources UP-TO-DATE
+> Task :shared_preferences_android:generateDebugRFile UP-TO-DATE
+> Task :sqflite_android:compileDebugLibraryResources UP-TO-DATE
+> Task :sqflite_android:parseDebugLocalResources UP-TO-DATE
+> Task :sqflite_android:generateDebugRFile UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :cloud_firestore:generateDebugBuildConfig UP-TO-DATE
+> Task :cloud_firestore:javaPreCompileDebug UP-TO-DATE
+> Task :firebase_core:generateDebugBuildConfig UP-TO-DATE
+> Task :firebase_core:javaPreCompileDebug UP-TO-DATE
+> Task :firebase_core:compileDebugJavaWithJavac UP-TO-DATE
+> Task :firebase_core:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :cloud_firestore:compileDebugJavaWithJavac UP-TO-DATE
+> Task :cloud_firestore:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :connectivity_plus:javaPreCompileDebug UP-TO-DATE
+> Task :connectivity_plus:compileDebugJavaWithJavac
+> Task :connectivity_plus:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :firebase_auth:generateDebugBuildConfig UP-TO-DATE
+> Task :firebase_auth:javaPreCompileDebug UP-TO-DATE
+> Task :firebase_auth:compileDebugJavaWithJavac UP-TO-DATE
+> Task :firebase_auth:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :firebase_messaging:generateDebugBuildConfig UP-TO-DATE
+> Task :firebase_messaging:javaPreCompileDebug UP-TO-DATE
+> Task :firebase_messaging:compileDebugJavaWithJavac UP-TO-DATE
+> Task :firebase_messaging:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :fluttertoast:checkKotlinGradlePluginConfigurationErrors
+> Task :fluttertoast:compileDebugKotlin UP-TO-DATE
+> Task :fluttertoast:javaPreCompileDebug UP-TO-DATE
+> Task :fluttertoast:compileDebugJavaWithJavac NO-SOURCE
+> Task :fluttertoast:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :path_provider_android:javaPreCompileDebug UP-TO-DATE
+> Task :path_provider_android:compileDebugJavaWithJavac
+> Task :path_provider_android:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :share_plus:checkKotlinGradlePluginConfigurationErrors
+> Task :share_plus:javaPreCompileDebug UP-TO-DATE
+> Task :shared_preferences_android:checkKotlinGradlePluginConfigurationErrors
+> Task :shared_preferences_android:compileDebugKotlin UP-TO-DATE
+> Task :shared_preferences_android:javaPreCompileDebug UP-TO-DATE
+> Task :shared_preferences_android:compileDebugJavaWithJavac
+> Task :shared_preferences_android:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :sqflite_android:javaPreCompileDebug UP-TO-DATE
+
+> Task :share_plus:compileDebugKotlin FAILED
+e: Incompatible classes were found in dependencies. Remove them from the classpath or use '-Xskip-metadata-version-check' to suppress errors
+e: file:///C:/Users/A%20K%20SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/META-INF/kotlin-stdlib-jdk7.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.2.0, expected version is 1.9.0.
+e: file:///C:/Users/A%20K%20SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/META-INF/kotlin-stdlib-jdk8.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.2.0, expected version is 1.9.0.
+e: file:///C:/Users/A%20K%20SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/META-INF/kotlin-stdlib.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.2.0, expected version is 1.9.0.
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:14:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:21:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:23:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:24:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:26:27 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:30:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:32:32 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:35:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:36:20 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:45:20 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:49:6 Class 'kotlin.jvm.Throws' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/jvm/Throws.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/MethodCallHandler.kt:51:9 Unresolved reference: require
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:24:46 Unresolved reference: lazy
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:34:49 Unresolved reference: lazy
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:55:14 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:58:6 Class 'kotlin.jvm.Throws' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/jvm/Throws.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:60:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:66:55 Unresolved reference: filterIsInstance
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:67:63 Unresolved reference: filterIsInstance
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:73:25 Unresolved reference: apply
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:74:17 Unresolved reference: action
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:75:17 Unresolved reference: type
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:76:17 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:77:30 Unresolved reference: isNullOrBlank
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:77:47 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:78:28 Unresolved reference: isNullOrBlank
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:78:45 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:92:33 Unresolved reference: apply
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:93:25 Unresolved reference: action
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:94:25 Unresolved reference: type
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:95:25 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:100:33 Unresolved reference: apply
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:101:25 Unresolved reference: action
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:102:25 Unresolved reference: type
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:103:25 Unresolved reference: putParcelableArrayListExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:108:25 Unresolved reference: apply
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:109:27 Unresolved reference: isNullOrBlank
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:109:44 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:110:30 Unresolved reference: isNullOrBlank
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:110:47 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:111:28 Unresolved reference: isNullOrBlank
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:111:45 Unresolved reference: putExtra
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:112:17 Unresolved reference: addFlags
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:126:71 Unresolved reference: java
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:139:25 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:141:36 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:142:34 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:152:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:156:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:157:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:158:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:160:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:166:25 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:168:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:172:6 Class 'kotlin.jvm.Throws' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/jvm/Throws.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:173:55 Unresolved reference: ArrayList
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:174:20 Unresolved reference: ArrayList
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:175:15 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:193:51 Unresolved reference: first
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:195:40 Unresolved reference: first
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:196:19 Class 'kotlin.collections.IntIterator' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/collections/IntIterator.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:196:20 Class 'kotlin.ranges.IntRange' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/ranges/IntRange.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:196:32 Unresolved reference: lastIndex
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:198:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:213:50 Unresolved reference: contains
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:216:22 Unresolved reference: substring
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:216:44 Unresolved reference: indexOf
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:223:22 Unresolved reference: startsWith
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:232:39 Unresolved reference: isNullOrEmpty
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:233:19 Unresolved reference: forEach
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:233:29 Unresolved reference: it
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:238:6 Class 'kotlin.jvm.Throws' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/jvm/Throws.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/Share.kt:245:14 Unresolved reference: copyTo
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPendingIntent.kt:30:20 Not enough information to infer type variable T
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPendingIntent.kt:30:91 Unresolved reference: java
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPendingIntent.kt:33:14 Class 'kotlin.Suppress' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Suppress.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPendingIntent.kt:34:20 Not enough information to infer type variable T
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPendingIntent.kt:39:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:16:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:17:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:18:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:20:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:24:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:28:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:29:15 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:33:15 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:37:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/SharePlusPlugin.kt:41:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:21:16 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:23:36 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:24:26 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:25:18 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:30:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:33:36 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:34:26 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:35:18 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:43:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:50:22 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:51:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:59:24 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:60:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+e: file:///C:/Users/A%20K%20SATHISHA/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.1/android/src/main/kotlin/dev/fluttercommunity/plus/share/ShareSuccessManager.kt:70:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.2.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from C:/Users/A K SATHISHA/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.0/fdfc65fbc42fda253a26f61dac3c0aca335fae96/kotlin-stdlib-2.2.0.jar!/kotlin/Unit.class
+
+> Task :sqflite_android:compileDebugJavaWithJavac
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':share_plus:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':share_plus:compileDebugKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:287)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:335)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:318)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:323)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:252)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:61)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:20)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:141)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:73)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:194)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:127)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:169)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+	... 2 more
+
+
+BUILD FAILED in 1m 44s
+173 actionable tasks: 16 executed, 157 up-to-date
