@@ -1,161 +1,79 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
-import 'dart:async';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
+/// DatabaseService now acts as a gateway to the Python Flask Backend API.
+/// This aligns with the project specification for Python Flask and Firestore.
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
   factory DatabaseService() => _instance;
   DatabaseService._internal();
 
-  static Database? _database;
+  // The base URL for the Flask Backend
+  // When running locally on emulator, use 10.0.2.2. For web, use localhost.
+  static const String _baseUrl =
+      kIsWeb ? 'http://localhost:5000/api' : 'http://10.0.2.2:5000/api';
 
-  // In-memory store for Web compatibility
-  final List<Map<String, dynamic>> _webMedicines = [];
-  final List<Map<String, dynamic>> _webHistory = [];
+  final Dio _dio = Dio(BaseOptions(
+    baseUrl: _baseUrl,
+    connectTimeout: const Duration(seconds: 10),
+    receiveTimeout: const Duration(seconds: 10),
+  ));
 
-  Future<Database?> get database async {
-    if (kIsWeb) return null; // No SQLite on Web
-    if (_database != null) {
-      debugPrint('DatabaseService: Existing DB instance returned');
-      return _database!;
-    }
-    _database = await _initDatabase();
-    debugPrint('DatabaseService: New DB initialized');
-    return _database!;
-  }
-
-  Future<Database> _initDatabase() async {
-    final dbPath = await getDatabasesPath();
-    final path = join(dbPath, 'meditrack_v1.db');
-
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _onCreate,
-    );
-  }
-
-  Future<void> _onCreate(Database db, int version) async {
-    debugPrint('DatabaseService: SQLite Database Initialized');
-    // Medicines Table
-    await db.execute('''
-      CREATE TABLE medicines(
-        id TEXT PRIMARY KEY,
-        userId TEXT,
-        medicineName TEXT,
-        batchNumber TEXT,
-        manufacturedDate TEXT,
-        expiryDate TEXT,
-        useCase TEXT,
-        disposed INTEGER,
-        addedAt TEXT
-      )
-    ''');
-
-    // History Table
-    await db.execute('''
-      CREATE TABLE history(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        userId TEXT,
-        medicineId TEXT,
-        action TEXT,
-        details TEXT,
-        timestamp TEXT
-      )
-    ''');
-  }
-
-  // Insert Medicine
+  // Insert Medicine (Calls Flask POST /api/medicines)
   Future<void> insertMedicine(Map<String, dynamic> data) async {
-    if (kIsWeb) {
-      debugPrint('DatabaseService: Inserting medicine (In-Memory): \$data');
-      _webMedicines.removeWhere((m) => m['id'] == data['id']);
-      _webMedicines.add(data);
-    } else {
-      final db = await database;
-      await db!.insert(
-        'medicines',
-        data,
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
+    try {
+      debugPrint('DatabaseService: Syncing to Flask/Firestore: $data');
+      await _dio.post('/medicines', data: data);
+    } catch (e) {
+      debugPrint('DatabaseService: Error inserting medicine: $e');
+      // Fallback or rethrow based on app needs
+      rethrow;
     }
   }
 
-  // Query Medicines
+  // Query Medicines (Calls Flask GET /api/medicines/<userId>)
   Future<List<Map<String, dynamic>>> getMedicines(String userId) async {
-    if (kIsWeb) {
-      debugPrint(
-          'DatabaseService: Fetching medicines (In-Memory) for \$userId');
-      return _webMedicines
-          .where((m) =>
-              m['userId'] == userId &&
-              (m['disposed'] == 0 || m['disposed'] == null))
-          .toList();
-    } else {
-      final db = await database;
-      return await db!.query(
-        'medicines',
-        where: 'userId = ? AND disposed = 0',
-        whereArgs: [userId],
-        orderBy: 'expiryDate ASC',
-      );
+    try {
+      debugPrint('DatabaseService: Fetching from Flask for $userId');
+      final response = await _dio.get('/medicines/$userId');
+      if (response.statusCode == 200) {
+        return List<Map<String, dynamic>>.from(response.data);
+      }
+      return [];
+    } catch (e) {
+      debugPrint('DatabaseService: Error fetching medicines: $e');
+      return [];
     }
   }
 
-  // Dispose Medicine (Update + Log History)
+  // Dispose Medicine (Calls Flask PUT /api/medicines/dispose)
   Future<void> disposeMedicine(
       String medicineId, String userId, String details) async {
-    if (kIsWeb) {
-      debugPrint(
-          'DatabaseService: Disposing medicine (In-Memory): \$medicineId');
-      final index = _webMedicines.indexWhere((m) => m['id'] == medicineId);
-      if (index != -1) {
-        _webMedicines[index]['disposed'] = 1;
-      }
-
-      _webHistory.add({
+    try {
+      debugPrint('DatabaseService: Disposing via Flask: $medicineId');
+      await _dio.put('/medicines/dispose', data: {
+        'id': medicineId,
         'userId': userId,
-        'medicineId': medicineId,
-        'action': 'Disposed',
         'details': details,
-        'timestamp': DateTime.now().toIso8601String(),
       });
-    } else {
-      final db = await database;
-      await db!.transaction((txn) async {
-        // 1. Mark as disposed
-        await txn.update(
-          'medicines',
-          {'disposed': 1},
-          where: 'id = ?',
-          whereArgs: [medicineId],
-        );
-
-        // 2. Add to history
-        await txn.insert('history', {
-          'userId': userId,
-          'medicineId': medicineId,
-          'action': 'Disposed',
-          'details': details,
-          'timestamp': DateTime.now().toIso8601String(),
-        });
-      });
+    } catch (e) {
+      debugPrint('DatabaseService: Error disposing medicine: $e');
+      rethrow;
     }
   }
 
-  // Get History Logs
+  // Get History Logs (Calls Flask GET /api/history/<userId>)
   Future<List<Map<String, dynamic>>> getHistory(String userId) async {
-    if (kIsWeb) {
-      return _webHistory.where((h) => h['userId'] == userId).toList();
-    } else {
-      final db = await database;
-      return await db!.query(
-        'history',
-        where: 'userId = ?',
-        whereArgs: [userId],
-        orderBy: 'timestamp DESC',
-      );
+    try {
+      debugPrint('DatabaseService: Fetching history from Flask for $userId');
+      final response = await _dio.get('/history/$userId');
+      if (response.statusCode == 200) {
+        return List<Map<String, dynamic>>.from(response.data);
+      }
+      return [];
+    } catch (e) {
+      debugPrint('DatabaseService: Error fetching history: $e');
+      return [];
     }
   }
 }

@@ -6,7 +6,9 @@ import '../../providers/auth_provider.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   final String phoneNumber;
-  const OtpVerificationScreen({super.key, required this.phoneNumber});
+  final Map<String, dynamic>? registrationData;
+  const OtpVerificationScreen(
+      {super.key, required this.phoneNumber, this.registrationData});
 
   @override
   State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
@@ -68,9 +70,45 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     try {
       await authProvider.signInWithOTP(code);
+
       if (mounted) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
+        if (widget.registrationData != null) {
+          // If it's registration, create email/password account too
+          final data = widget.registrationData!;
+          try {
+            await authProvider.signUp(
+              email: data['email'],
+              password: data['password'],
+              name: data['name'],
+              phone: data['phone'],
+            );
+
+            // After registration, sign out so they can log in normally as requested
+            await authProvider.signOut();
+
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                    content: Text('Registration successful! Please login.')),
+              );
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/login-screen', (route) => false);
+            }
+          } catch (e) {
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Email registration error: $e')),
+              );
+              // Still navigate to dashboard or login? Let's go to dashboard as fallback since phone is verified
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
+            }
+          }
+        } else {
+          // Normal OTP Login
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
+        }
       }
     } catch (e) {
       if (mounted) {

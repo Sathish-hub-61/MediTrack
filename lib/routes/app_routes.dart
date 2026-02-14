@@ -46,7 +46,10 @@ class AppRoutes {
     otpVerification: (context) {
       final args =
           ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-      return OtpVerificationScreen(phoneNumber: args['phoneNumber']);
+      return OtpVerificationScreen(
+        phoneNumber: args['phoneNumber'],
+        registrationData: args['registrationData'],
+      );
     },
 
     // Medicine Detail Screen
