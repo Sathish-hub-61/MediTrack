@@ -6,6 +6,7 @@ import '../../../widgets/custom_bottom_bar.dart';
 import 'home_dashboard_initial_page.dart';
 import '../history_screen/history_screen.dart';
 import '../profile_screen/profile_screen.dart';
+import '../ai_assistant_screen/ai_assistant_screen.dart';
 
 import 'widgets/side_drawer.dart';
 
@@ -39,6 +40,7 @@ class HomeDashboardState extends State<HomeDashboard> {
 
     return Scaffold(
       drawer: const SideDrawer(),
+      endDrawer: const AIAssistantScreen(),
       body: IndexedStack(
         index: currentIndex,
         children: _pages,

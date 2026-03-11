@@ -1,112 +1,101 @@
-# Flutter
+# 🏥 MediTrack: Online Monitoring of Quality, Safety, and Lifecycle of Medicines
 
-A modern Flutter-based mobile application utilizing the latest mobile development technologies and tools for building responsive cross-platform applications.
+**MediTrack** is an enterprise-grade medical safety platform designed to monitor the clinical quality and shelf-life of medicines. It bridges the "Last Mile" gap between pharmacies and patients by providing active intervention when medicines are approaching their expiration date.
 
-## 📋 Prerequisites
+![App Logo](assets/images/app_icon.png)
 
-- Flutter SDK (^3.38.4)
-- Dart SDK
-- Android Studio / VS Code with Flutter extensions
-- Android SDK / Xcode (for iOS development)
+---
 
-## 🛠️ Installation
+## 🚀 Key Features
 
-1. Install dependencies:
-```bash
-flutter pub get
-```
+*   **🛡️ Quality Monitoring:** Tracks the lifecycle of medicines from dispensation to disposal.
+*   **📞 Triple-Alert System:** Simultaneous automated **Voice Calls**, **SMS**, and **Push Notifications** triggered 7 days before medicine expiry.
+*   **☁️ Omni-Channel Sync:** Real-time data synchronization between the **Pharmacy Web Portal** (Python/Flask) and the **Mobile App** (Flutter).
+*   **🤖 AI Safety Assistant:** Integrated **Google Gemini AI** to answer patient queries regarding medication and safety instructions.
+*   **🔐 Enterprise Security:** Hardened environment management with `.env` shielding and Firebase-backed authentication.
 
-2. Run the application:
-```bash
-flutter run
-```
+---
+
+## 🛠️ Technology Stack
+
+### **Frontend (Mobile)**
+*   **Framework:** Flutter (Dark/Light Mode support)
+*   **State Management:** Provider
+*   **UI Components:** Sizer (Responsive Design), Google Fonts
+
+### **Backend & Web Portal**
+*   **Language:** Python (Flask Framework)
+*   **Database:** Google Cloud Firestore (NoSQL)
+*   **Authentication:** Firebase Auth (Email/Password & Bypass logic)
+
+### **Communications API**
+*   **Voice & SMS:** Twilio API
+*   **Push Notifications:** Firebase Cloud Messaging (FCM)
+
+---
 
 ## 📁 Project Structure
 
-```
-flutter_app/
-├── android/            # Android-specific configuration
-├── ios/                # iOS-specific configuration
-├── lib/
-│   ├── core/           # Core utilities and services
-│   │   └── utils/      # Utility classes
-│   ├── presentation/   # UI screens and widgets
-│   │   └── splash_screen/ # Splash screen implementation
-│   ├── routes/         # Application routing
-│   ├── theme/          # Theme configuration
-│   ├── widgets/        # Reusable UI components
-│   └── main.dart       # Application entry point
-├── assets/             # Static assets (images, fonts, etc.)
-├── pubspec.yaml        # Project dependencies and configuration
-└── README.md           # Project documentation
+```text
+MediTrack/
+├── lib/               # Flutter Mobile App Logic
+├── pharmacy_portal/   # Python/Flask Web Dashboard & Alert Backend
+├── assets/            # App Icons, Images, and Fonts
+├── android/           # Android Native Configuration
+├── .env               # (Required) API Keys & Credentials
+└── pubspec.yaml       # Flutter Dependencies
 ```
 
-## 🧩 Adding Routes
+---
 
-To add new routes to the application, update the `lib/routes/app_routes.dart` file:
+## ⚙️ Setup & Installation
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:package_name/presentation/home_screen/home_screen.dart';
+### **1. Flutter Mobile App**
+1. Navigate to the root directory.
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+3. Run the app:
+   ```bash
+   flutter run
+   ```
 
-class AppRoutes {
-  static const String initial = '/';
-  static const String home = '/home';
+### **2. Pharmacy Portal (Backend)**
+1. Navigate to the `pharmacy_portal` folder.
+2. Create and activate a Virtual Environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Or .venv\Scripts\Activate.ps1 on Windows
+   ```
+3. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Start the server:
+   ```bash
+   python app.py
+   ```
 
-  static Map<String, WidgetBuilder> routes = {
-    initial: (context) => const SplashScreen(),
-    home: (context) => const HomeScreen(),
-    // Add more routes as needed
-  }
-}
-```
-
-## 🎨 Theming
-
-This project includes a comprehensive theming system with both light and dark themes:
-
-```dart
-// Access the current theme
-ThemeData theme = Theme.of(context);
-
-// Use theme colors
-Color primaryColor = theme.colorScheme.primary;
-```
-
-The theme configuration includes:
-- Color schemes for light and dark modes
-- Typography styles
-- Button themes
-- Input decoration themes
-- Card and dialog themes
-
-## 📱 Responsive Design
-
-The app is built with responsive design using the Sizer package:
-
-```dart
-// Example of responsive sizing
-Container(
-  width: 50.w, // 50% of screen width
-  height: 20.h, // 20% of screen height
-  child: Text('Responsive Container'),
-)
-```
-## 📦 Deployment
-
-Build the application for production:
-
+### **3. Running the Alert Job**
+To scan the database and trigger Voice/SMS/Push alerts manually:
 ```bash
-# For Android
-flutter build apk --release
-
-# For iOS
-flutter build ios --release
+python alert_job.py
 ```
 
-## 🙏 Acknowledgments
-- Built with [Rocket.new](https://rocket.new)
-- Powered by [Flutter](https://flutter.dev) & [Dart](https://dart.dev)
-- Styled with Material Design
+---
 
-Built with ❤️ on Rocket.new
+## 🛡️ "Quality" Monitoring Logic
+In this project, **Quality** is defined as the chemical and clinical integrity of the medicine. When a medicine expires, its quality degrades. The system monitors this lifecycle online and intervenes before the quality lapses, ensuring 100% patient safety.
+
+---
+
+## 🏆 Project Outcomes
+*   **Technical:** Successful integration of IVR (Interactive Voice Response) with Cloud Database.
+*   **Social:** Reduction in accidental consumption of expired medication.
+*   **Technical:** Automated multi-channel safety net for high-risk patients.
+
+---
+
+**Developed for the ASAC Capstone 2026**
+*Submitted with ❤️ for Medical Safety.*

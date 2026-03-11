@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-8">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">System Analytics</h1>
+        <p class="text-gray-500 mt-2">Network overview of all registered Pharmacies and Medicines</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center">
+            <div class="p-4 bg-blue-50 text-blue-600 rounded-xl mr-4">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 uppercase">Total Pharmacies</p>
+                <p class="text-3xl font-black text-gray-800">{{ pharmacies|length }}</p>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center">
+            <div class="p-4 bg-green-50 text-green-600 rounded-xl mr-4">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 uppercase">Assigned Medicines</p>
+                <p class="text-3xl font-black text-gray-800">{{ medicines|length }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registered Pharmacies -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">Registered Pharmacies</h3>
+        </div>
+        <div class="p-6">
+            {% if pharmacies %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {% for p in pharmacies %}
+                <div
+                    class="p-4 rounded-xl border border-gray-200 bg-white shadow-sm flex flex-col items-start hover:shadow-md transition">
+                    <span class="text-sm font-semibold text-gray-900">{{ p.get('pharmacy_name', 'Unknown') }}</span>
+                    <span class="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block mt-2">@{{
+                        p.get('username') }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-sm">No pharmacies have been registered yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Recent Global Sales Table -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">Global Portal Activity</h3>
+        </div>
+        <div class="overflow-x-auto p-1">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-white">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Assigned By</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Customer User ID
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Medicine</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Added On</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    {% for m in medicines[-10:]|reverse %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm font-bold text-gray-900">{{ m.get('addedByPharmacy') }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-500 font-mono">{{ m.get('userId', '')[:10] }}...</td>
+                        <td class="px-6 py-4 text-sm font-medium text-gray-800">{{ m.get('medicineName') }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-500">{{ m.get('addedAt')[:10] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="px-6 py-8 text-center text-gray-400">No activity yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

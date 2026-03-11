@@ -22,11 +22,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     setState(() => _isLoading = true);
     try {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final args =
+          ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
       await authProvider.signInWithOTP(_otpController.text);
 
       // If we have registration data, update the profile
-      final args =
-          ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
       if (args.containsKey('registrationData')) {
         final data = args['registrationData'] as Map<String, dynamic>;
         await authProvider.updateUserProfile(

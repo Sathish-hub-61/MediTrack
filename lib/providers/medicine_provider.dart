@@ -24,46 +24,27 @@ class MedicineProvider with ChangeNotifier {
 
     try {
       final data = await _db.getMedicines(userId);
-      _medicines = data.map((json) => MedicineModel.fromMap(json)).toList();
+      final newList = data.map((json) => MedicineModel.fromMap(json)).toList();
+      newList.sort((a, b) => a.expiryDate.compareTo(b.expiryDate));
+      
+      // Schedule local notifications for all active medicines
+      for (var medicine in newList) {
+        if (medicine.status != MedicineStatus.expired) {
+          NotificationService().scheduleExpiryNotification(
+            id: medicine.id.hashCode,
+            title: 'Medicine Expiring Soon',
+            body: '${medicine.medicineName} is expiring on ${medicine.expiryDate.toString().split(' ')[0]}',
+            expiryDate: medicine.expiryDate,
+            daysBefore: 7, // Default 7 day warning
+          );
+        }
+      }
 
-      // Add temporary medicines for demo
-      final now = DateTime.now();
-      _medicines.addAll([
-        MedicineModel(
-          id: 'temp1',
-          userId: userId,
-          medicineName: 'Paracetamol 500mg',
-          batchNumber: 'PCM2024A123',
-          manufacturedDate: DateTime(2024, 1, 15),
-          expiryDate: DateTime(2025, 8, 15),
-          useCase: 'Fever, Pain relief',
-          addedAt: now,
-        ),
-        MedicineModel(
-          id: 'temp2',
-          userId: userId,
-          medicineName: 'Amoxicillin 250mg',
-          batchNumber: 'AMX2024B456',
-          manufacturedDate: DateTime(2024, 3, 10),
-          expiryDate: DateTime(2025, 2, 15), // Very soon!
-          useCase: 'Bacterial infections',
-          addedAt: now,
-        ),
-        MedicineModel(
-          id: 'temp3',
-          userId: userId,
-          medicineName: 'Cetirizine 10mg',
-          batchNumber: 'CET2023C789',
-          manufacturedDate: DateTime(2023, 12, 5),
-          expiryDate: DateTime(2025, 1, 5), // Expired
-          useCase: 'Allergies',
-          addedAt: now,
-        ),
-      ]);
-
-      _medicines.sort((a, b) => a.expiryDate.compareTo(b.expiryDate));
+      // Only replace the list AFTER data is ready — avoids blank flash on refresh
+      _medicines = newList;
     } catch (e) {
       debugPrint('Error loading medicines: $e');
+      // Keep the existing _medicines list so the screen doesn't go blank
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -90,6 +71,34 @@ class MedicineProvider with ChangeNotifier {
       );
     } catch (e) {
       debugPrint('Error adding medicine: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> updateMedicine(MedicineModel medicine) async {
+    try {
+      await _db.insertMedicine(medicine.toMap());
+
+      // Update local list
+      final index = _medicines.indexWhere((m) => m.id == medicine.id);
+      if (index != -1) {
+        _medicines[index] = medicine;
+      }
+      _medicines.sort((a, b) => a.expiryDate.compareTo(b.expiryDate));
+      notifyListeners();
+
+      // Update Notification
+      await NotificationService().cancelNotification(medicine.id.hashCode);
+      await NotificationService().scheduleExpiryNotification(
+        id: medicine.id.hashCode,
+        title: 'Medicine Expiring Soon',
+        body:
+            '${medicine.medicineName} is expiring on ${medicine.expiryDate.toString().split(' ')[0]}',
+        expiryDate: medicine.expiryDate,
+        daysBefore: 30,
+      );
+    } catch (e) {
+      debugPrint('Error updating medicine: $e');
       rethrow;
     }
   }

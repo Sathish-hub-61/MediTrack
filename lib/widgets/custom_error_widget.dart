@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../core/app_export.dart';
 import '../routes/app_routes.dart';
 
 // custom_error_widget.dart
@@ -25,23 +23,23 @@ class CustomErrorWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  'assets/images/sad_face.svg',
-                  height: 42,
-                  width: 42,
+                const Icon(
+                  Icons.sentiment_dissatisfied,
+                  size: 48,
+                  color: Color(0xFF757575),
                 ),
                 const SizedBox(height: 8),
-                Text(
+                const Text(
                   "Something went wrong",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF262626),
                   ),
                 ),
                 const SizedBox(height: 4),
-                SizedBox(
-                  child: const Text(
+                const SizedBox(
+                  child: Text(
                     'We encountered an unexpected error while processing your request.',
                     textAlign: TextAlign.center,
                     style: TextStyle(

@@ -91,9 +91,14 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
       final medicineProvider =
           Provider.of<MedicineProvider>(context, listen: false);
 
+      final user = authProvider.user;
+      if (user == null) {
+        throw Exception('User not authenticated');
+      }
+
       final medicine = MedicineModel(
         id: const Uuid().v4(),
-        userId: authProvider.user!.uid,
+        userId: user.uid,
         medicineName: _medicineNameController.text.trim(),
         batchNumber: _batchNumberController.text.trim(),
         manufacturedDate: _manufacturedDate!,
@@ -120,6 +125,7 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
           SnackBar(
             content: Text('Error adding medicine: $e'),
             backgroundColor: Theme.of(context).colorScheme.error,
+            duration: const Duration(seconds: 4),
           ),
         );
       }

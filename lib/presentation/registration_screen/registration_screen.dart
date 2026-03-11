@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../providers/auth_provider.dart';
 
@@ -14,10 +15,10 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
-  final _phoneController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  String _completePhoneNumber = '';
   bool _termsAccepted = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -25,7 +26,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   void dispose() {
     _nameController.dispose();
-    _phoneController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
@@ -92,43 +92,46 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       return;
     }
 
+    if (_completePhoneNumber.isEmpty) {
+      debugPrint('RegistrationScreen: Phone number is empty');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Please enter a valid phone number'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
+      return;
+    }
+
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
-    final phone = '+91${_phoneController.text.trim()}';
-    debugPrint('RegistrationScreen: Starting phone verification for $phone');
+    final phone = _completePhoneNumber;
+    debugPrint('RegistrationScreen: Direct Email Registration for $phone');
 
     try {
-      await authProvider.verifyPhoneNumber(
-        phone,
-        onCodeSent: (verificationId) {
-          debugPrint('RegistrationScreen: Code sent, navigating to OTP screen');
-          if (!mounted) return;
-          Navigator.pushNamed(
-            context,
-            '/otp-verification-screen',
-            arguments: {
-              'phoneNumber': phone,
-              'registrationData': {
-                'name': _nameController.text.trim(),
-                'email': _emailController.text.trim(),
-                'password': _passwordController.text,
-                'phone': _phoneController.text.trim(),
-              }
-            },
-          );
-        },
-        onVerificationFailed: (e) {
-          debugPrint('RegistrationScreen: Verification failed: $e');
-          if (!mounted) return;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Verification failed: ${e.message}')),
-          );
-        },
+      await authProvider.signUp(
+        email: _emailController.text.trim(),
+        password: _passwordController.text,
+        name: _nameController.text.trim(),
+        phone: phone,
       );
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Registration successful! Directing into app.'),
+            backgroundColor: Colors.green,
+          ),
+        );
+        Navigator.of(context).pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
+      }
     } catch (e) {
       debugPrint('RegistrationScreen: Exception caught: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
+          SnackBar(
+            content: Text('Registration Error: $e'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ),
         );
       }
     }
@@ -210,29 +213,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   SizedBox(height: 2.h),
 
                   // Phone Field
-                  TextFormField(
-                    controller: _phoneController,
-                    keyboardType: TextInputType.phone,
-                    style: theme.textTheme.bodyLarge,
+                  IntlPhoneField(
                     decoration: InputDecoration(
                       labelText: 'Phone Number',
-                      prefixIcon: Icon(
-                        Icons.phone,
-                        color: theme.colorScheme.primary,
+                      border: const OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                        ),
                       ),
-                      prefixText: '+91 ',
-                      prefixStyle: theme.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: theme.colorScheme.primary,
+                        ),
                       ),
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter phone number';
-                      }
-                      if (value.length != 10) {
-                        return 'Phone number must be 10 digits';
-                      }
-                      return null;
+                    initialCountryCode: 'IN',
+                    onChanged: (phone) {
+                      _completePhoneNumber = phone.completeNumber;
                     },
                   ),
 
@@ -254,8 +252,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       if (value == null || value.trim().isEmpty) {
                         return 'Please enter email';
                       }
-                      if (!value.contains('@')) {
-                        return 'Please enter valid email';
+                      final emailRegex =
+                          RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+                      if (!emailRegex.hasMatch(value)) {
+                        return 'Please enter a valid email address';
                       }
                       return null;
                     },
@@ -399,23 +399,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     height: 6.h,
                     child: Consumer<AuthProvider>(
                       builder: (context, auth, _) {
-                        debugPrint(
-                            'RegistrationScreen: Rebuilding button. isLoading: ${auth.isLoading}');
                         return ElevatedButton(
-                          // FORCE ENABLED FOR DEBUGGING
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      'DEBUG: Clicked! Loading: ${auth.isLoading}')),
-                            );
-                            if (auth.isLoading) {
-                              debugPrint(
-                                  'DEBUG: Button clicked while loading.');
-                              return;
-                            }
-                            _handleRegistration();
-                          },
+                          onPressed:
+                              auth.isLoading ? null : _handleRegistration,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: theme.colorScheme.primary,
                             foregroundColor: theme.colorScheme.onPrimary,

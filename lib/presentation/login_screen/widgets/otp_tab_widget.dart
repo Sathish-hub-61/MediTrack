@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import '../../../providers/auth_provider.dart';
 
 class OtpTabWidget extends StatefulWidget {
@@ -12,13 +13,13 @@ class OtpTabWidget extends StatefulWidget {
 }
 
 class _OtpTabWidgetState extends State<OtpTabWidget> {
-  final TextEditingController _phoneController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String _completePhoneNumber = '';
 
   void _sendOtp() async {
     if (_formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
-      final phone = '+91${_phoneController.text.trim()}';
+      final phone = _completePhoneNumber;
 
       try {
         await authProvider.verifyPhoneNumber(
@@ -55,29 +56,24 @@ class _OtpTabWidgetState extends State<OtpTabWidget> {
       key: _formKey,
       child: Column(
         children: [
-          TextFormField(
-            controller: _phoneController,
-            keyboardType: TextInputType.phone,
-            maxLength: 10,
-            style: theme.textTheme.bodyLarge,
+          IntlPhoneField(
             decoration: InputDecoration(
               labelText: 'Phone Number',
-              hintText: 'Enter 10 digit number',
-              prefixIcon: Padding(
-                padding: EdgeInsets.only(
-                    left: 3.w, top: 1.5.h, bottom: 1.5.h, right: 1.h),
-                child: Text('+91',
-                    style: theme.textTheme.bodyLarge
-                        ?.copyWith(fontWeight: FontWeight.bold)),
+              border: const OutlineInputBorder(),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                ),
               ),
-              counterText: "",
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter phone number';
-              }
-              if (value.length != 10) return 'Please enter 10 digits';
-              return null;
+            initialCountryCode: 'IN',
+            onChanged: (phone) {
+              _completePhoneNumber = phone.completeNumber;
             },
           ),
           SizedBox(height: 4.h),

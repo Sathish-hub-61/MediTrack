@@ -1,100 +1,58 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tz_data;
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
   factory NotificationService() => _instance;
   NotificationService._internal();
 
-  final FlutterLocalNotificationsPlugin _notificationsPlugin =
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+  bool _isInitialized = false;
 
   Future<void> init() async {
-    if (kIsWeb) return;
-
-    // 1. FCM Initialization (Aligns with spec: Firebase Cloud Messaging)
-    await _setupFCM();
-
-    // 2. Initialize Local Notifications (Timezones & Settings)
-    tz_data.initializeTimeZones();
-
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-
-    const DarwinInitializationSettings initializationSettingsIOS =
-        DarwinInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-    );
-
-    const InitializationSettings initializationSettings =
-        InitializationSettings(
-      android: initializationSettingsAndroid,
-      iOS: initializationSettingsIOS,
-    );
-
-    await _notificationsPlugin.initialize(
-      initializationSettings,
-      onDidReceiveNotificationResponse: (details) {
-        // Handle local notification click
-      },
-    );
-  }
-
-  Future<void> _setupFCM() async {
-    // Request permissions
-    NotificationSettings settings = await _fcm.requestPermission(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
-
-    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      debugPrint('User granted FCM permission');
-
-      // Get token for backend syncing if needed in future
-      String? token = await _fcm.getToken();
-      debugPrint('FCM Token: $token');
-
-      // Handle background messages
-      FirebaseMessaging.onBackgroundMessage(
-          _firebaseMessagingBackgroundHandler);
-
-      // Handle foreground messages
-      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-        debugPrint('Got a message whilst in the foreground!');
-        if (message.notification != null) {
-          _showForegroundNotification(message.notification!);
-        }
-      });
+    if (kIsWeb) {
+      debugPrint(
+          'NotificationService: Web platform detected - skipping native notification init');
+      return;
     }
-  }
 
-  static Future<void> _firebaseMessagingBackgroundHandler(
-      RemoteMessage message) async {
-    debugPrint("Handling a background message: ${message.messageId}");
-  }
+    if (_isInitialized) return;
 
-  void _showForegroundNotification(RemoteNotification notification) {
-    _notificationsPlugin.show(
-      notification.hashCode,
-      notification.title,
-      notification.body,
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          'fcm_foreground',
-          'Cloud Messaging Notifications',
-          importance: Importance.max,
-          priority: Priority.high,
-        ),
-      ),
-    );
+    try {
+      tz.initializeTimeZones();
+
+      // Android initialization
+      const AndroidInitializationSettings initializationSettingsAndroid =
+          AndroidInitializationSettings('@mipmap/ic_launcher');
+
+      // iOS initialization
+      final DarwinInitializationSettings initializationSettingsDarwin =
+          DarwinInitializationSettings(
+        requestSoundPermission: true,
+        requestBadgePermission: true,
+        requestAlertPermission: true,
+      );
+
+      final InitializationSettings initializationSettings =
+          InitializationSettings(
+        android: initializationSettingsAndroid,
+        iOS: initializationSettingsDarwin,
+      );
+
+      await flutterLocalNotificationsPlugin.initialize(
+        settings: initializationSettings,
+      );
+
+      _isInitialized = true;
+      debugPrint(
+          'NotificationService: Native platform - notifications initialized successfully');
+    } catch (e) {
+      debugPrint('NotificationService: Failed to initialize notifications: $e');
+    }
   }
 
   Future<void> scheduleExpiryNotification({
@@ -104,35 +62,58 @@ class NotificationService {
     required DateTime expiryDate,
     int daysBefore = 1,
   }) async {
-    if (kIsWeb) return;
+    if (kIsWeb || !_isInitialized) {
+      debugPrint(
+          'NotificationService: Skipping schedule on web or uninitialized plugin');
+      return;
+    }
 
+    // Calculate when the notification should fire
     final scheduledDate = expiryDate.subtract(Duration(days: daysBefore));
 
-    if (scheduledDate.isBefore(DateTime.now())) return;
+    // If that date has already passed, don't schedule
+    if (scheduledDate.isBefore(DateTime.now())) {
+      debugPrint(
+          'NotificationService: Scheduled date for $title is in the past. Canceling.');
+      return;
+    }
 
-    await _notificationsPlugin.zonedSchedule(
-      id,
-      title,
-      body,
-      tz.TZDateTime.from(scheduledDate, tz.local),
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          'expiry_alerts',
-          'Medicine Expiry Alerts',
-          channelDescription: 'Notifications for medicine expiry reminders',
-          importance: Importance.max,
-          priority: Priority.high,
+    try {
+      debugPrint(
+          'NotificationService: Scheduling notification for $title on $scheduledDate');
+
+      await flutterLocalNotificationsPlugin.zonedSchedule(
+        id: id,
+        title: title,
+        body: body,
+        scheduledDate: tz.TZDateTime.from(scheduledDate, tz.local),
+        notificationDetails: const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'medicine_expiry_channel',
+            'Medicine Expiry Alerts',
+            channelDescription: 'Notifications for expiring medicines',
+            importance: Importance.max,
+            priority: Priority.high,
+            icon: '@mipmap/ic_launcher',
+          ),
+          iOS: DarwinNotificationDetails(),
         ),
-        iOS: DarwinNotificationDetails(),
-      ),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      );
+      debugPrint('NotificationService: Notification scheduled successfully');
+    } catch (e) {
+      debugPrint('NotificationService: Error scheduling notification: $e');
+    }
   }
 
   Future<void> cancelNotification(int id) async {
-    if (kIsWeb) return;
-    await _notificationsPlugin.cancel(id);
+    if (kIsWeb || !_isInitialized) return;
+
+    try {
+      debugPrint('NotificationService: Cancelling notification $id');
+      await flutterLocalNotificationsPlugin.cancel(id: id);
+    } catch (e) {
+      debugPrint('NotificationService: Error cancelling notification $id: $e');
+    }
   }
 }

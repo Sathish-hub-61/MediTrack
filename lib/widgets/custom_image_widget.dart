@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../core/app_export.dart';
 
 extension ImageTypeExtension on String {
   ImageType get imageType {
@@ -10,8 +8,6 @@ extension ImageTypeExtension on String {
       return ImageType.network;
     } else if (endsWith('.svg')) {
       return ImageType.svg;
-    } else if (startsWith('file: //')) {
-      return ImageType.file;
     } else {
       return ImageType.png;
     }
@@ -20,9 +16,9 @@ extension ImageTypeExtension on String {
 
 enum ImageType { svg, png, network, file, unknown }
 
-// ignore_for_file: must_be_immutable
 class CustomImageWidget extends StatelessWidget {
-  const CustomImageWidget({super.key, 
+  const CustomImageWidget({
+    super.key,
     this.imageUrl,
     this.height,
     this.width,
@@ -38,34 +34,18 @@ class CustomImageWidget extends StatelessWidget {
     this.semanticLabel,
   });
 
-  ///[imageUrl] is required parameter for showing image
   final String? imageUrl;
-
   final double? height;
-
   final double? width;
-
   final BoxFit? fit;
-
   final String placeHolder;
-
   final Color? color;
-
   final Alignment? alignment;
-
   final VoidCallback? onTap;
-
   final BorderRadius? radius;
-
   final EdgeInsetsGeometry? margin;
-
   final BoxBorder? border;
-
-  /// Optional widget to show when the image fails to load.
-  /// If null, a default asset image is shown.
   final Widget? errorWidget;
-
-  /// Semantic label for the image to improve accessibility
   final String? semanticLabel;
 
   @override
@@ -82,8 +62,7 @@ class CustomImageWidget extends StatelessWidget {
     );
   }
 
-  ///build the image with border radius
-  _buildCircleImage() {
+  Widget _buildCircleImage() {
     if (radius != null) {
       return ClipRRect(
         borderRadius: radius ?? BorderRadius.zero,
@@ -94,8 +73,7 @@ class CustomImageWidget extends StatelessWidget {
     }
   }
 
-  ///build the image with border and border radius style
-  _buildImageWithBorder() {
+  Widget _buildImageWithBorder() {
     if (border != null) {
       return Container(
         decoration: BoxDecoration(border: border, borderRadius: radius),
@@ -127,15 +105,6 @@ class CustomImageWidget extends StatelessWidget {
               semanticsLabel: semanticLabel,
             ),
           );
-        case ImageType.file:
-          return Image.file(
-            File(imageUrl!),
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.cover,
-            color: color,
-            semanticLabel: semanticLabel,
-          );
         case ImageType.network:
           return CachedNetworkImage(
             height: height,
@@ -161,6 +130,8 @@ class CustomImageWidget extends StatelessWidget {
                   semanticLabel: semanticLabel,
                 ),
           );
+        case ImageType.file:
+        // File type not supported on web, fall through to asset
         case ImageType.png:
         default:
           return Image.asset(
@@ -173,6 +144,6 @@ class CustomImageWidget extends StatelessWidget {
           );
       }
     }
-    return SizedBox();
+    return const SizedBox();
   }
 }

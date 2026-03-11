@@ -96,7 +96,7 @@ class _PasswordTabWidgetState extends State<PasswordTabWidget> {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                // Forgot password logic
+                Navigator.pushNamed(context, '/forgot-password-screen');
               },
               child: Text(
                 "Forgot Password?",

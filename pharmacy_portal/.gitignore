@@ -1,0 +1,18 @@
+# Firebase Admin JSON (Critical Secret)
+serviceAccountKey.json
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# Python Caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+env/
+venv/
+.venv/
+ENV/

@@ -99,8 +99,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           systemOverlayStyle: overlayStyle,
           elevation: 0,
           backgroundColor: colorScheme.surface,
-          leading:
-              leading ??
+          leading: leading ??
               (showBackButton
                   ? IconButton(
                       icon: const Icon(Icons.arrow_back),
@@ -120,7 +119,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         );
 
       case CustomAppBarVariant.standard:
-      default:
         return AppBar(
           systemOverlayStyle: overlayStyle,
           elevation: 0,

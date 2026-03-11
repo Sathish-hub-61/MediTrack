@@ -16,13 +16,33 @@ class HistoryModel {
   });
 
   factory HistoryModel.fromMap(Map<String, dynamic> json) {
+    // The DatabaseService logs only have: userId, action, timestamp
+    // Parse the action string to extract action type and details
+    final rawAction = json['action']?.toString() ?? '';
+    String parsedAction = 'Other';
+    String parsedDetails = rawAction;
+
+    if (rawAction.toLowerCase().startsWith('added medicine:')) {
+      parsedAction = 'Added';
+      parsedDetails = rawAction.substring('Added medicine: '.length);
+    } else if (rawAction.toLowerCase().startsWith('disposed medicine:')) {
+      parsedAction = 'Disposed';
+      parsedDetails = rawAction.substring('Disposed medicine: '.length);
+    } else if (rawAction.toLowerCase().startsWith('edited')) {
+      parsedAction = 'Edited';
+      parsedDetails = rawAction;
+    }
+
     return HistoryModel(
-      id: json['id'].toString(),
+      id: json['id']?.toString() ??
+          DateTime.now().millisecondsSinceEpoch.toString(),
       userId: json['userId'] ?? '',
       medicineId: json['medicineId'] ?? '',
-      action: json['action'] ?? '',
-      details: json['details'] ?? '',
-      timestamp: DateTime.parse(json['timestamp']),
+      action: parsedAction,
+      details: parsedDetails,
+      timestamp: json['timestamp'] != null
+          ? DateTime.tryParse(json['timestamp'].toString()) ?? DateTime.now()
+          : DateTime.now(),
     );
   }
 

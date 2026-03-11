@@ -46,3 +46,21 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 android/app/.cxx
+
+# --- SECURITY & SECRETS ---
+# Never commit these files to GitHub
+.env
+.env.*
+*.env
+serviceAccountKey.json
+secrets/
+lib/firebase_options.dart
+
+# --- Python / Pharmacy Portal ---
+__pycache__/
+*.py[cod]
+*$py.class
+env/
+venv/
+.venv/
+ENV/

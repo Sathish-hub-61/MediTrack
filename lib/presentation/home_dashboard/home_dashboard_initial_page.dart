@@ -41,7 +41,7 @@ class _HomeDashboardInitialPageState extends State<HomeDashboardInitialPage> {
     );
 
     if (authProvider.user != null) {
-      medicineProvider.loadMedicines(authProvider.user!.uid);
+      await medicineProvider.loadMedicines(authProvider.user!.uid);
     }
   }
 
@@ -134,6 +134,17 @@ class _HomeDashboardInitialPageState extends State<HomeDashboardInitialPage> {
                 ),
               ),
               actions: [
+                IconButton(
+                  icon: Icon(
+                    Icons.smart_toy_outlined,
+                    color: theme.colorScheme.primary,
+                    size: 26,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  tooltip: 'MediTrack Assistant',
+                ),
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
@@ -212,7 +223,7 @@ class _HomeDashboardInitialPageState extends State<HomeDashboardInitialPage> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: theme.colorScheme.shadow
-                                        .withOpacity(0.05),
+                                        .withValues(alpha: 0.05),
                                     blurRadius: 10,
                                     offset: const Offset(0, 4),
                                   ),
@@ -227,7 +238,7 @@ class _HomeDashboardInitialPageState extends State<HomeDashboardInitialPage> {
                                   hintStyle:
                                       theme.textTheme.bodyMedium?.copyWith(
                                     color: theme.colorScheme.onSurfaceVariant
-                                        .withOpacity(0.7),
+                                        .withValues(alpha: 0.7),
                                   ),
                                   prefixIcon: Icon(
                                     Icons.search_rounded,
@@ -302,7 +313,7 @@ class _HomeDashboardInitialPageState extends State<HomeDashboardInitialPage> {
                         ),
                       ),
                     ),
-                    medicineProvider.isLoading
+                    (medicineProvider.isLoading && filteredList.isEmpty)
                         ? const SliverFillRemaining(
                             child: Center(child: CircularProgressIndicator()),
                           )

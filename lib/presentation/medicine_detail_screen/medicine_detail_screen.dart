@@ -37,6 +37,18 @@ class MedicineDetailScreen extends StatelessWidget {
           style:
               theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit, color: theme.colorScheme.primary),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/edit-medicine-screen',
+                arguments: medicine,
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -46,7 +58,7 @@ class MedicineDetailScreen extends StatelessWidget {
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 4.h),
               decoration: BoxDecoration(
-                color: theme.colorScheme.primary.withOpacity(0.05),
+                color: theme.colorScheme.primary.withValues(alpha: 0.05),
               ),
               child: Column(
                 children: [
@@ -58,7 +70,7 @@ class MedicineDetailScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color: Colors.black.withValues(alpha: 0.1),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
@@ -94,9 +106,9 @@ class MedicineDetailScreen extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
                     decoration: BoxDecoration(
-                      color: statusColor.withOpacity(0.1),
+                      color: statusColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: statusColor.withOpacity(0.3)),
+                      border: Border.all(color: statusColor.withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [

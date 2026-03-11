@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../providers/auth_provider.dart';
 import '../../models/user_model.dart';
@@ -22,6 +23,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // State for Slider
   double _expiryAlertDays = 7;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _smsAlerts = prefs.getBool('smsAlerts') ?? true;
+      _voiceCallAlerts = prefs.getBool('voiceCallAlerts') ?? false;
+      _appNotifications = prefs.getBool('appNotifications') ?? true;
+      _expiryAlertDays = prefs.getDouble('expiryAlertDays') ?? 7.0;
+    });
+  }
+
+  Future<void> _saveBool(String key, bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(key, value);
+  }
+
+  Future<void> _saveDouble(String key, double value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble(key, value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,18 +156,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _buildSwitchTile(context, "SMS Alerts", _smsAlerts,
                               (val) {
                             setState(() => _smsAlerts = val);
+                            _saveBool('smsAlerts', val);
                           }),
                           const Divider(height: 1),
                           _buildSwitchTile(
                               context, "Voice Call Alerts", _voiceCallAlerts,
                               (val) {
                             setState(() => _voiceCallAlerts = val);
+                            _saveBool('voiceCallAlerts', val);
                           }),
                           const Divider(height: 1),
                           _buildSwitchTile(
                               context, "App Notifications", _appNotifications,
                               (val) {
                             setState(() => _appNotifications = val);
+                            _saveBool('appNotifications', val);
                           }),
                           const Divider(height: 1),
                           Padding(
@@ -177,6 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     setState(() {
                                       _expiryAlertDays = val;
                                     });
+                                    _saveDouble('expiryAlertDays', val);
                                   },
                                 ),
                               ],
@@ -305,8 +336,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color:
-              theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Icon(

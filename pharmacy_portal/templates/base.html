@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pharmacy Portal{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 flex h-screen text-gray-800">
+
+    {% if session.get('pharmacy_username') or session.get('admin') %}
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg border-r border-gray-100 flex flex-col">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-blue-600 tracking-tight">MediTrack<span
+                    class="text-gray-400 font-light text-sm ml-1">Portal</span></h2>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+            {% if session.get('pharmacy_username') %}
+            <a href="{{ url_for('dashboard') }}"
+                class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-blue-50 hover:text-blue-600">Dashboard</a>
+            <a href="{{ url_for('add_medicine') }}"
+                class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-blue-50 hover:text-blue-600">Add
+                Medicine</a>
+            <a href="{{ url_for('sales') }}"
+                class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-blue-50 hover:text-blue-600">Sales
+                & Export</a>
+            {% elif session.get('admin') %}
+            <a href="{{ url_for('admin_dashboard') }}"
+                class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-blue-50 hover:text-blue-600">Admin
+                Panel</a>
+            {% endif %}
+        </nav>
+
+        <div class="p-4 border-t border-gray-100">
+            <a href="{{ url_for('logout') }}"
+                class="block w-full px-4 py-2 text-center text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Logout</a>
+        </div>
+    </aside>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto w-full">
+        <!-- Flash Messages -->
+        <div class="max-w-7xl mx-auto px-8 pt-6">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div
+                class="p-4 mb-4 rounded-lg shadow-sm border {{ 'bg-red-50 text-red-700 border-red-200' if category == 'error' else 'bg-green-50 text-green-700 border-green-200' }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+
+</html>

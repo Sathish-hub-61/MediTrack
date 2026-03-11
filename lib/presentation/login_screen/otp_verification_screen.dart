@@ -73,39 +73,34 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
       if (mounted) {
         if (widget.registrationData != null) {
-          // If it's registration, create email/password account too
+          // REGISTRATION FLOW: link email/password account to the current phone session
           final data = widget.registrationData!;
           try {
-            await authProvider.signUp(
+            await authProvider.linkEmailAndPassword(
               email: data['email'],
               password: data['password'],
               name: data['name'],
               phone: data['phone'],
             );
-
-            // After registration, sign out so they can log in normally as requested
+          } catch (e) {
+            debugPrint('OtpVerification: link error (non-fatal): $e');
+            // Email account may already exist — that is okay.
+          } finally {
+            // ALWAYS sign out and go back to Login after registration
             await authProvider.signOut();
-
             if (mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                    content: Text('Registration successful! Please login.')),
+                  content: Text('Registration successful! Please login.'),
+                  backgroundColor: Colors.green,
+                ),
               );
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/login-screen', (route) => false);
             }
-          } catch (e) {
-            if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Email registration error: $e')),
-              );
-              // Still navigate to dashboard or login? Let's go to dashboard as fallback since phone is verified
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
-            }
           }
         } else {
-          // Normal OTP Login
+          // NORMAL OTP LOGIN — go directly to dashboard
           Navigator.of(context)
               .pushNamedAndRemoveUntil('/home-dashboard', (route) => false);
         }
@@ -113,7 +108,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Invalid code: $e')),
+          SnackBar(content: Text('Invalid OTP code: $e')),
         );
       }
     }
@@ -246,7 +241,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
         border: Border.all(
           color: _focusNodes[index].hasFocus
               ? theme.colorScheme.primary
-              : theme.colorScheme.outline.withOpacity(0.2),
+              : theme.colorScheme.outline.withValues(alpha: 0.2),
           width: 1.5,
         ),
       ),

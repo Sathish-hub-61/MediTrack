@@ -10,6 +10,10 @@ import '../presentation/medicine_detail_screen/medicine_detail_screen.dart';
 import '../presentation/history_screen/history_screen.dart';
 import '../presentation/profile_screen/profile_screen.dart';
 import '../presentation/add_medicine_screen/add_medicine_screen.dart';
+import '../presentation/add_medicine_screen/edit_medicine_screen.dart';
+import '../models/medicine_model.dart';
+import '../presentation/ai_assistant_screen/ai_assistant_screen.dart';
+import '../presentation/forgot_password_screen/forgot_password_screen.dart';
 
 import '../presentation/common_screens/common_screens.dart';
 
@@ -26,7 +30,10 @@ class AppRoutes {
   static const String historyScreen = '/history-screen';
   static const String profileScreen = '/profile-screen';
   static const String addMedicineScreen = '/add-medicine-screen';
+  static const String editMedicineScreen = '/edit-medicine-screen';
   static const String otpVerification = '/otp-verification-screen';
+  static const String aiAssistant = '/ai-assistant-screen';
+  static const String forgotPassword = '/forgot-password-screen';
 
   static const String settingsScreen = '/settings-screen';
   static const String helpSupportScreen = '/help-support-screen';
@@ -43,6 +50,11 @@ class AppRoutes {
     historyScreen: (context) => const HistoryScreen(),
     profileScreen: (context) => const ProfileScreen(),
     addMedicineScreen: (context) => const AddMedicineScreen(),
+    editMedicineScreen: (context) {
+      final medicine =
+          ModalRoute.of(context)!.settings.arguments as MedicineModel;
+      return EditMedicineScreen(medicine: medicine);
+    },
     otpVerification: (context) {
       final args =
           ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
@@ -51,6 +63,8 @@ class AppRoutes {
         registrationData: args['registrationData'],
       );
     },
+    aiAssistant: (context) => const AIAssistantScreen(),
+    forgotPassword: (context) => const ForgotPasswordScreen(),
 
     // Medicine Detail Screen
     medicineDetail: (context) => const MedicineDetailScreen(),

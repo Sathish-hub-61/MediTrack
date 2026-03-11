@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-8">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Pharmacy Dashboard</h1>
+        <p class="text-gray-500 mt-2">Welcome back, {{ pharmacy_name }}!</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center cursor-pointer hover:shadow-md transition-shadow"
+            onclick="location.href='{{ url_for('add_medicine') }}'">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Assign Medicine</h3>
+            <p class="text-gray-500 text-sm mt-2 text-center">Add new inventory and link to patient via Phone Number.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center cursor-pointer hover:shadow-md transition-shadow"
+            onclick="location.href='{{ url_for('sales') }}'">
+            <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">View Sales</h3>
+            <p class="text-gray-500 text-sm mt-2 text-center">Export history and view assigned medicine lists.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
