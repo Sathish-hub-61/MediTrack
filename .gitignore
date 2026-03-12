@@ -53,8 +53,23 @@ android/app/.cxx
 .env.*
 *.env
 serviceAccountKey.json
+google-services.json
+GoogleService-Info.plist
 secrets/
 lib/firebase_options.dart
+
+# --- Logs and Build Artifacts ---
+*.txt
+*.log
+analyze_*.txt
+build_*.txt
+devices_*.txt
+emulators.txt
+analysis.txt
+*.zip
+*.png
+!assets/images/*.png
+!assets/*.png
 
 # --- Python / Pharmacy Portal ---
 __pycache__/
